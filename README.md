@@ -1,4 +1,4 @@
-# Creatwise
+#Creatwise
 <!DOCTYPE html>
 <html>
 
@@ -32,8 +32,15 @@
 	</script>
 	<script>
 		{
+			function CreateClick() {
+				document.getElementById("name").innerHTML = document.getElementById("txtName").value;
+				document.getElementById("s_date").innerHTML = document.getElementById("txtStart").value;
+				document.getElementById("e_date").innerHTML = document.getElementById("txtEnd").value;
+				document.getElementById("weeks").innerHTML = document.getElementById("txtWeeks").value;
+			}
+
 			function navTeam() {
-				var x = document.getElementById("green");
+				var x = document.getElementById("side_nav");
 				if (x.style.display === "none") {
 					x.style.display = "block";
 				} else {
@@ -122,11 +129,10 @@
 			height: 100%;
 		}
 
-		#green {
+		#side_nav {
 			height: auto;
 			max-height: 100%;
 			background: rgb(12, 145, 12);
-			/* text-align: center; */
 			color: black;
 			padding: 150px 20px 105px 10px;
 		}
@@ -182,7 +188,7 @@
 		<!-- h-100 takes the full height
 				of the container-->
 		<div class="row h-100">
-			<div class="col-2" id="green">
+			<div class="col-2" id="side_nav">
 				<a href="#" onclick="Tac()"><i class="fas fa-head-side-virus">&nbsp;&nbsp;</i>Tac-Tic-Tec</a><br />
 				<br />
 				<!-- Navigation links in sidebar-->
@@ -233,7 +239,7 @@
 					<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
 						<div class="navbar-nav">
 							<a class="nav-item nav-link
-								active" href="#green" onclick="navTeam()">Team</a>
+								active" href="#" onclick="navTeam()">Team</a>
 							<a class="nav-item nav-link" href="#">U23</a>
 							<a class="nav-item nav-link" href="#">U19</a>
 						</div>
@@ -304,26 +310,27 @@
 																<dl>
 																	<dt>Schedule Name</dt>
 																	<dd>
-																		<input type="text" id="txtIn" class="form-control">
+																		<input type="text" id="txtName" class="form-control">
 																	</dd>
 																	<dt>Start Date</dt>
 																	<dd>
-																		<input type="date" id="txtIn" class="form-control">
+																		<input type="date" id="txtStart" class="form-control">
 																	</dd>
 																	<dt>End Date</dt>
 																	<dd>
-																		<input type="date" id="txtOut" class="form-control">
+																		<input type="date" id="txtEnd" class="form-control">
 																	</dd>
-																	<dt>Enter No. of Week</dt>
+																	<dt>Enter No. of Weeks</dt>
 																	<dd>
-																		<input type="number" id="txtOut" class="form-control">
+																		<input type="number" id="txtWeeks" class="form-control">
 																	</dd>
 																</dl>
 															</div>
 															<div class="modal-footer">
 																<button data-dismiss="modal" class="btn btn-danger form-control">Close</button>
-																<button data-dismiss="modal" onclick="CreatClick()" class="btn btn-success form-control"
-																	data-toggle="modal" data-target="#order"><a style="color: white;">Create</a></button>
+																<button data-dismiss="modal" onclick="CreateClick()"
+																	class="btn btn-success form-control" data-toggle="modal" data-target="#order"><a
+																		style="color: white;">Create</a></button>
 															</div>
 														</div>
 													</div>
@@ -587,6 +594,38 @@
 												<h2>Write your content Here</h2>
 											</div>
 										</div>
+										<!-- Validation Table -->
+										<div class="modal" id="order">
+											<div class="modal-dialog">
+												<div class="modal-content">
+													<div class="modal-header">
+														<h2 class=" text-info">Customer Info</h2>
+													</div>
+													<div class="modal-body" style="background-image: none;">
+														<table class="table table-hover" style="font-weight: bolder;">
+															<tr>
+																<td>Schedule Name</td>
+																<td id="name"></td>
+															</tr>
+															<tr>
+																<td>Start Date</td>
+																<td id="s_date"></td>
+															</tr>
+															<tr>
+																<td>End Date</td>
+																<td id="e_date"></td>
+															</tr>
+															<tr>
+																<td>No. of weeks</td>
+																<td id="weeks"></td>
+															</tr>
+														</table>
+													</div>
+													<div class="modal-footer">
+														<button class="btn btn-success" data-dismiss="modal"> Ok</button>
+														<button class="btn btn-secondary" data-dismiss="modal">cancel</button>
+													</div>
+												</div>
 </body>
 
 </html>
